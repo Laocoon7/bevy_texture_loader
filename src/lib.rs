@@ -12,3 +12,11 @@ pub use self::texture_loader_plugin::*;
 
 mod texture_loader_schedule;
 pub use self::texture_loader_schedule::*;
+
+/// Prelude for `BevyTextureLoader`
+pub mod prelude {
+    pub use crate::assets::Texture;
+    pub use crate::bundles::TextureBundle;
+
+    pub use crate::TextureLoaderPlugin;
+}

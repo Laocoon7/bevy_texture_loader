@@ -1,5 +1,5 @@
 [package]
-name = "bevy_sprite_loader"
+name = "bevy_texture_loader"
 version = "0.1.0"
 edition = "2021"
 description = "Provides virtual camera functionality for Bevy Engine"

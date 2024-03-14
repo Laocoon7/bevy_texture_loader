@@ -1,7 +1,7 @@
 //! Example for testing the crate as it is built
 
 use bevy::{prelude::*, render::camera::ScalingMode};
-use bevy_sprite_loader::TextureLoaderPlugin;
+use bevy_texture_loader::prelude::*;
 
 fn main() {
     let mut app = App::new();
@@ -30,7 +30,7 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     });
 
     info!("Spawning sprite");
-    commands.spawn(bevy_sprite_loader::bundles::TextureBundle {
+    commands.spawn(TextureBundle {
         sprite: Sprite {
             custom_size: Some(Vec2::ONE),
             ..Default::default()
