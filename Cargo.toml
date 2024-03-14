@@ -1,0 +1,49 @@
+[package]
+name = "bevy_sprite_loader"
+version = "0.1.0"
+edition = "2021"
+description = "Provides virtual camera functionality for Bevy Engine"
+# homepage = "https://github.com/laocoon7/bevy_atlas_loader"
+# repository = "https://github.com/laocoon7/bevy_atlas_loader"
+license = "MIT OR Apache-2.0"
+keywords = ["bevy", "camera"]
+exclude = ["assets/"]
+
+[features]
+default = ["animation", "trace"]
+animation = []
+trace = []
+
+[dependencies]
+anyhow = "1"
+bevy = { version = "0.13" }
+serde = "1"
+ron = "0.8"
+
+[lints.clippy]
+type_complexity = "allow"
+doc_markdown = "warn"
+manual_let_else = "warn"
+undocumented_unsafe_blocks = "warn"
+redundant_else = "warn"
+match_same_arms = "warn"
+semicolon_if_nothing_returned = "warn"
+
+ptr_as_ptr = "warn"
+ptr_cast_constness = "warn"
+#TODO(rust 1.77): enable `ref_as_ptr`
+# ref_as_ptr = "warn"
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "warn"
+missing_docs = "warn"
+
+[dev-dependencies]
+
+[[example]]
+name = "image"
+path = "examples/image.rs"
+
+[[example]]
+name = "atlas"
+path = "examples/atlas.rs"

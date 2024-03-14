@@ -1,0 +1,12 @@
+Atlas(
+    image: "circles.png",
+    tile_size: (16.0, 16.0),
+    columns: 2,
+    rows: 1,
+    padding: None,
+    offset: None,
+    indices: {
+        "yellow": 0,
+        "blue": 1,
+    },
+)
