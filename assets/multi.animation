@@ -1,0 +1,19 @@
+Multi({
+    "one_shot": (
+        animation_type: OneShot,
+        frames_per_second: 0.5,
+        frames: [
+            "circles.texture#blue",
+            "circles.texture#yellow",
+        ],
+    ),
+    "loop": (
+        animation_type: Loop,
+        frames_per_second: 1.0,
+        frames: [
+            "circles.texture#blue",
+            "circles.texture#yellow",
+            "dot.texture",
+        ],
+    ),
+})

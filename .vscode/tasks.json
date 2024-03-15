@@ -59,5 +59,47 @@
             },
             "problemMatcher": []
         },
+        {
+            "label": "run animation single",
+            "type": "shell",
+            "command": "cargo fmt;cargo run --example animation_single",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "run animation multi",
+            "type": "shell",
+            "command": "cargo fmt;cargo run --example animation_multi",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "run animation finished",
+            "type": "shell",
+            "command": "cargo fmt;cargo run --example animation_finished",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
     ]
 }

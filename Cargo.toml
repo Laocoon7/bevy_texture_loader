@@ -10,7 +10,7 @@ keywords = ["bevy", "camera"]
 exclude = ["assets/"]
 
 [features]
-default = ["animation", "trace"]
+default = ["animation"]
 animation = []
 trace = []
 
@@ -47,3 +47,15 @@ path = "examples/image.rs"
 [[example]]
 name = "atlas"
 path = "examples/atlas.rs"
+
+[[example]]
+name = "animation_single"
+path = "examples/animation_single.rs"
+
+[[example]]
+name = "animation_multi"
+path = "examples/animation_multi.rs"
+
+[[example]]
+name = "animation_finished"
+path = "examples/animation_finished.rs"

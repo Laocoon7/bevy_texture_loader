@@ -15,7 +15,7 @@ impl AssetLoader for TextureLoader {
     type Error = anyhow::Error;
 
     fn extensions(&self) -> &[&str] {
-        &["texture"]
+        &["texture", "textures", "sprite", "sprites"]
     }
 
     fn load<'a>(
@@ -26,12 +26,14 @@ impl AssetLoader for TextureLoader {
     ) -> BoxedFuture<'a, Result<Self::Asset, Self::Error>> {
         Box::pin(async move {
             #[cfg(feature = "trace")]
-            println!("Loading `Texture`");
+            trace!("Loading `Texture`");
 
+            // Read the serialized version
             let mut contents = Vec::new();
             reader.read_to_end(&mut contents).await?;
             let texture_serialized = ron::de::from_bytes::<TextureSerialized>(&contents)?;
 
+            // Get the texture asset we will return
             let texture = match texture_serialized {
                 TextureSerialized::Image(path) => Texture::Image(load_context.load(path)),
                 TextureSerialized::Atlas {
@@ -43,16 +45,21 @@ impl AssetLoader for TextureLoader {
                     offset,
                     indices,
                 } => {
+                    // Generate the `TextureAtlasLayout`
                     let layout =
                         TextureAtlasLayout::from_grid(tile_size, columns, rows, padding, offset);
+                    // Add the layout as a dependency for this texture at 'asset_path/asset.texture#layout'
                     let layout_handle =
                         load_context.add_labeled_asset("layout".to_string(), layout);
 
+                    // Load the full image
                     let image = load_context.load(image);
 
                     for (name, index) in indices.iter() {
                         #[cfg(feature = "trace")]
-                        println!("Found atlas image: {}", name);
+                        trace!("Found atlas image: {}", name);
+
+                        // load each atlas image with it's index mapped to it's name at 'asset_path/asset.texture#{NAME}'
                         load_context.add_labeled_asset(
                             name.to_string(),
                             Texture::Atlas {
@@ -63,6 +70,7 @@ impl AssetLoader for TextureLoader {
                         );
                     }
 
+                    // If no label is set, return the full image
                     Texture::Image(image)
                 }
             };

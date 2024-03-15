@@ -17,7 +17,7 @@ pub fn convert_texture_to_sprite(
     for (entity, handle, maybe_old_image_handle, maybe_old_atlas) in q_textures.iter_mut() {
         if asset_server.load_state(handle) != LoadState::Loaded {
             #[cfg(feature = "trace")]
-            println!("Waiting for texture to load: {:?}", handle);
+            trace!("Waiting for texture to load: {:?}", handle);
             continue;
         }
 
@@ -27,7 +27,7 @@ pub fn convert_texture_to_sprite(
         };
 
         #[cfg(feature = "trace")]
-        println!("Converting `Handle<Texture>` into a valid image");
+        trace!("Converting `Handle<Texture>` into a valid image");
 
         if let Some(mut image_handle) = maybe_old_image_handle {
             // update old [`Handle<Image>`]

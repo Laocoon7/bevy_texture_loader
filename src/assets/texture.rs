@@ -26,7 +26,12 @@ impl Texture {
     /// Retrieve the [`Handle<Image>`]
     pub fn image_handle(&self) -> Handle<Image> {
         match self {
-            Texture::Image(image_handle) | Texture::Atlas {image_handle, layout_handle: _, index: _,} => image_handle.clone(),
+            Texture::Image(image_handle)
+            | Texture::Atlas {
+                image_handle,
+                layout_handle: _,
+                index: _,
+            } => image_handle.clone(),
         }
     }
 

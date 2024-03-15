@@ -1,0 +1,8 @@
+Single((
+    animation_type: Loop,
+    frames_per_second: 2.0,
+    frames: [
+        "circles.texture#blue",
+        "circles.texture#yellow",
+    ],
+))
