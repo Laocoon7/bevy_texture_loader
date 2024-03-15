@@ -6,7 +6,7 @@ description = "Provides virtual camera functionality for Bevy Engine"
 homepage = "https://github.com/laocoon7/bevy_texture_loader"
 repository = "https://github.com/laocoon7/bevy_texture_loader"
 license = "MIT OR Apache-2.0"
-keywords = ["bevy", "camera"]
+keywords = ["bevy"]
 exclude = ["assets/"]
 
 [features]
