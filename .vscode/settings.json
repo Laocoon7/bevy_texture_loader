@@ -3,7 +3,11 @@
 {
   "files.associations": {
     "*.settings": "toml",
-    "*.atlas": "ron",
-    "*.image": "ron",
+    "*.texture": "ron",
+    "*.textures": "ron",
+    "*.sprite": "ron",
+    "*.sprites": "ron",
+    "*.animation": "ron",
+    "*.animations": "ron",
   }
 }
